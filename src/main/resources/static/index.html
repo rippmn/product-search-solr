@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Product Autocomplete</title>
+  <link rel="stylesheet" href="css/jquery-ui.css">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/jquery-1.12.4.js"></script>
+  <script src="js/jquery-ui.js"></script>
+  <script>
+  $( function() {
+  function log( message ) {
+    $( "<div>" ).text( message ).prependTo( "#log" );
+    $( "#log" ).scrollTop( 0 );
+  }
+
+  $( "#products" ).autocomplete({
+    source: "search",
+    minLength: 2,
+    select: function( event, ui ) {
+      log( "Selected: " + ui.item.value + " aka " + ui.item.id );
+    }
+  } );
+  } );
+  </script>
+
+</head>
+<body>
+
+<div class="ui-widget">
+  <label for="products">Product: </label>
+  <input id="products">
+</div>
+
+
+</body>
+</html>
